@@ -21,7 +21,7 @@ class ContactCreateRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
+        return [        
             'nom' => 'required|alpha',
             'prenom' => 'required|alpha',
             'e_mail' => 'required|email',

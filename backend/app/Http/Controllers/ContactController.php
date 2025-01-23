@@ -33,6 +33,7 @@ class ContactController extends Controller
      * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
     public function index()
+    
     {
         return ContactResource::collection($this->contactService->getAll());
     }
@@ -97,6 +98,7 @@ class ContactController extends Controller
      */
     public function update(ContactUpdateRequest $request)
     {
+        dd($request);
         $contact = $this->contactService->update($request->all());
         return new ContactResource($contact);
     }
@@ -109,7 +111,9 @@ class ContactController extends Controller
      */
     public function destroy(ContactDeleteRequest $request)
     {
+        dd("test");
         $this->contactService->delete($request->input('id'));
         return response()->json(null, 204);
     }
+    
 }
